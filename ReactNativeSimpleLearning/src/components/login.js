@@ -17,6 +17,14 @@ import { connect } from "react-redux"
 import { bindActionCreators } from 'redux';
 import { doLogin } from '../actions'
 import BaseComponent from './baseComponent'
+import { NavigationActions } from 'react-navigation'
+// const navigateAction = NavigationActions.navigate({
+//   routeName: 'Home',
+
+//   params: {},
+
+//   action: NavigationActions.navigate({ routeName: 'SubProfileRoute'})
+// })
 class Login extends BaseComponent {
   constructor(props) {
     super(props)
@@ -25,6 +33,8 @@ class Login extends BaseComponent {
       password: '',
     }
     this.functionLogin = this.functionLogin.bind(this);
+    this.props.navigation.dispatch(navigateAction)
+
   }
 
   functionLogin() {
@@ -33,14 +43,14 @@ class Login extends BaseComponent {
     this.props.doLogin(username, password)
     }
   }
-  componentWillReceiveProps (nextProps) {
-     console.log("componentWillReceiveProps");
-      const { navigate, goBack } = this.props.navigation;
-     if(nextProps.loginReducer.isLoginSuccess){
-        // this._navigateTo('Home')
-        navigate('Home',nextProps.loginReducer.loginData);
-     }
-  }
+  // componentWillReceiveProps (nextProps) {
+  //    console.log("componentWillReceiveProps");
+  //     const { navigate, goBack } = this.props.navigation;
+  //    if(nextProps.loginReducer.isLoginSuccess){
+  //       // this._navigateTo('Home')
+  //       navigate('Home',nextProps.loginReducer.loginData);
+  //    }
+  // }
   static navigationOptions = {
     header: null
   }
@@ -56,6 +66,7 @@ class Login extends BaseComponent {
         <TextInput
           style={{ height: 40 }}
           placeholder="Password"
+          editable = {false}
           onChangeText={value => this.setState({ password: value })}
         />
         <Button

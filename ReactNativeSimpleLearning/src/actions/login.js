@@ -1,5 +1,5 @@
 import api from '../api/apiCaller'
-
+import { NavigationActions } from 'react-navigation';
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGIN = "LOGIN";
@@ -35,6 +35,8 @@ export function doLogin(username, password) {
             .then(jsonData => {
                 console.log(jsonData)
                 dispatch(loginSuccess(jsonData))
+                // dispatch(NavigationActions.navigate({ routeName: 'Home' })) 
+                dispatch({ type: 'Login' })
             })
             .catch((error) => {
                 dispatch(loginFail(error))
