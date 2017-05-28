@@ -33,7 +33,11 @@ class Login extends BaseComponent {
       password: '',
     }
     this.functionLogin = this.functionLogin.bind(this);
+<<<<<<< HEAD
     // this.props.navigation.dispatch(navigateAction)
+=======
+    this.props.navigation.dispatch(navigateAction)
+>>>>>>> 1f9ec102d65a4c24c7ecb6ae3cef7e2fb74cbcf5
 
   }
 

@@ -35,8 +35,13 @@ export function doLogin(username, password) {
             .then(jsonData => {
                 console.log(jsonData)
                 dispatch(loginSuccess(jsonData))
+<<<<<<< HEAD
                 dispatch({ type: 'Home' , params:jsonData})
 
+=======
+                // dispatch(NavigationActions.navigate({ routeName: 'Home' })) 
+                dispatch({ type: 'Login' })
+>>>>>>> 1f9ec102d65a4c24c7ecb6ae3cef7e2fb74cbcf5
             })
             .catch((error) => {
                 dispatch(loginFail(error))
